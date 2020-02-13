@@ -5,9 +5,7 @@ import os
 import json
 
 app = Flask(__name__)
-DB_IP = os.getenv('DB_IP')
-PORT = os.getenv('PORT')
-myclient = pymongo.MongoClient("mongodb://"+DB_IP+":27017/")
+myclient = pymongo.MongoClient("mongodb://localhost:5003/")
 mydb = myclient["productcatalog"]
 mycol = mydb["product"]
 
@@ -46,7 +44,7 @@ def getId(id):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=PORT)
+    app.run(host='0.0.0.0', port=6005)
 
 
 
